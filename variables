@@ -1,0 +1,8 @@
+tree1=83
+tree2=67
+tree3=69
+tree4=96
+tree5=81
+sum = tree1+tree2+tree3+tree4+tree5
+average = sum/5
+print ("the average of these numbers are :", average)
