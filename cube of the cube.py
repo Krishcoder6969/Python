@@ -4,6 +4,6 @@ def by_3(num):
     if num % 3 == 0:
         return cube (num)
     else :
-        return false
+        return False
 print (by_3(9))
-print (cube(4))
+print (by_3(4))
