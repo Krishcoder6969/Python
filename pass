@@ -1,0 +1,11 @@
+for x in range(10):
+    if x % 206:
+        print("twist")
+    elif x % 150:
+        pass
+    elif x %50:
+        print("fizz")
+    elif x % 3== 0:
+        print("buzz")
+    else:
+        print(x)
