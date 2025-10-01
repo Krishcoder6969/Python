@@ -1,0 +1,13 @@
+import os
+
+def shutdown_computer(delay_seconds=0):
+    """
+    Shuts down the computer after a specified delay.
+    On Windows, this uses the 'shutdown /s /t' command.
+    """
+    if os.name == 'nt':  # Check if the operating system is Windows
+        command = f"shutdown /s /t {delay_seconds}"
+        os.system(command)
+        print(f"System will shut down in {delay_seconds} seconds.")
+    else:
+        print("This function is designed for Windows. Use appropriate commands for other OS.")
