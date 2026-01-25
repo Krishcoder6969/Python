@@ -1,0 +1,65 @@
+class IntegerToRoman:
+    """
+    A class to convert an integer to its Roman numeral representation.
+    """
+    def __init__(self):
+        """
+        Initializes the converter with the Roman numeral mapping.
+
+        The mapping is stored as a list of tuples, ordered from largest to smallest value
+        to facilitate easy conversion.
+        """
+        self.roman_map = [
+            (1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'),
+            (100, 'C'), (90, 'XC'), (50, 'L'), (40, 'XL'),
+            (10, 'X'), (9, 'IX'), (5, 'V'), (4, 'IV'),
+            (1, 'I')
+        ]
+
+    def convert(self, n: int) -> str:
+        """
+        Converts an integer to a Roman numeral.
+
+        Args:
+            n: An integer between 1 and 3999, inclusive.
+
+        Returns:
+            The Roman numeral representation as a string.
+
+        Raises:
+            ValueError: If the input integer is outside the valid range [1, 3999].
+        """
+        if not (1 <= n <= 3999):
+            raise ValueError("Integer must be between 1 and 3999, inclusive.")
+
+        result = []
+        # Iterate through the map and subtract the value from n as long as possible
+        for value, numeral in self.roman_map:
+            while n >= value:
+                n -= value
+                result.append(numeral)
+        
+        return "".join(result)
+
+# --- Example Usage ---
+# Instantiate the class
+converter = IntegerToRoman()
+
+# Convert different numbers
+num1 = 3999
+roman1 = converter.convert(num1)
+print(f"The integer {num1} is converted to Roman numeral: {roman1}")
+
+num2 = 58
+roman2 = converter.convert(num2)
+print(f"The integer {num2} is converted to Roman numeral: {roman2}")
+
+num3 = 1994
+roman3 = converter.convert(num3)
+print(f"The integer {num3} is converted to Roman numeral: {roman3}")
+
+# Example of an invalid input (will raise a ValueError)
+try:
+    converter.convert(4000)
+except ValueError as e:
+    print(f"\nError: {e}")
